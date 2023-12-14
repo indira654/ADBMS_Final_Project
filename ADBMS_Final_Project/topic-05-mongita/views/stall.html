@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ stall_info[1] }} - Menu</title>
+</head>
+<body>
+    <h1>{{ stall_info[1] }} - Menu</h1>
+    <form method="POST" action="{{ url_for('stall', stall_id=stall_info[0]) }}">
+        <ul>
+            {% for item in items %}
+                <li>
+                    <input type="radio" name="item_id" value="{{ item[0] }}" required>
+                    {{ item[1] }} - Price: {{ item[2] }}
+                </li>
+            {% endfor %}
+        </ul>
+        <label for="quantity">Quantity:</label>
+        <input type="number" name="quantity" min="1" value="1" required>
+        <button type="submit">Order</button>
+    </form>
+</body>
+</html>

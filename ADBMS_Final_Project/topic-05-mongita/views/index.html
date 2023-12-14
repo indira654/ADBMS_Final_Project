@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kent Student Centre</title>
+</head>
+<body>
+    <h1>Welcome to Kent Student Centre</h1>
+    <h2>Choose a Stall:</h2>
+    <ul>
+        {% for stall in stalls %}
+            <li><a href="{{ url_for('stall', stall_id=stall[0]) }}">{{ stall[1] }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
